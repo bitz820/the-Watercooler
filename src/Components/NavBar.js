@@ -13,7 +13,7 @@ const NavBar = () => {
             My Profile
         </NavLink>
         <NavLink
-        to="/loveProfile"
+        to="/loverProfile"
         exact
         // style={linkStyles}
         // activeStyle={active}
