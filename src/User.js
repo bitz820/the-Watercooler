@@ -6,24 +6,25 @@ const User = () => {
     useEffect (() => {
         fetch('http://localhost:9292/users')
         .then(r=>r.json())
-        .then(data => {setUser(data)})
+        .then(data => setUser(data))
     }, [])
 
-// Const renderUser = <User with PROPS/>
-console.log(user)
+const renderUser = user.map(atts => {
+    return (
+        <div key={atts.id}>
+            <h1>{atts.username}</h1>
+            <img src={atts.profile_picture} alt="My Profile"/>
+            <h3>About Me: {atts.bio}</h3>
+            <h5>Gender: {atts.gender}</h5>
+            <p>Interests: {atts.interests}</p>
+            {/* <h4>Age: USER.BIRTDATE BUT USE THE AGE METHOD TO CALCULATE?</h4> */}
+        </div>
+    )
+})
 
   return (
     <div>
-        <h1>{user.username}</h1>
-        <img src={user.profile_picture} alt="My Profile"/>
-        <h3>About Me:{user.bio}</h3>
-        <h5>Gender: {user.gender}</h5>
-        <p>Interests: {user.interests}</p>
-        {/* <h4>Age: USER.BIRTDATE BUT USE THE AGE METHOD TO CALCULATE?</h4> */}
-
-
-
-
+        {renderUser}
     </div>
   )
 }
