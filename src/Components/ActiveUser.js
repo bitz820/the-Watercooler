@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import UserCard from './UserCard'
 
-const ActiveUser = () => {
+const ActiveProfile = () => {
     const [user, setUser] = useState([])
 
     useEffect (() => {
@@ -19,4 +19,4 @@ const renderUser = user.map(detail => <UserCard userInfo={detail}/>)
   )
 }
 
-export default ActiveUser
+export default ActiveProfile
