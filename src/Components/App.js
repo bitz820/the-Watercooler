@@ -1,9 +1,10 @@
 import React from "react"
 import { Route, Switch } from 'react-router-dom'
 import NavBar from "./NavBar"
-import User from "./User"
-import LoverProfile from "./LoverProfile"
-// import Match from "./Match"
+import LoginPage from "./LoginPage"
+import ActiveProfile from "./ActiveProfile"
+import Matches from "./Matches"
+import DatingPool from "./DatingPool"
 
 function App() {
 
@@ -12,14 +13,17 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <User />
+          <ActiveProfile />
         </Route>
-        <Route path="/loverProfile">
-          <LoverProfile />
+        <Route path="/loginPage">
+          <LoginPage />
         </Route>
-        {/* <Route path="/matches">
-          <Match/>
-        </Route> */}
+        <Route path="/matches">
+          <Matches/>
+        </Route>
+        <Route path="/datingPool">
+          <DatingPool/>
+        </Route>
       </Switch>
     </div>
   );

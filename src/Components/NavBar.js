@@ -13,21 +13,29 @@ const NavBar = () => {
             My Profile
         </NavLink>
         <NavLink
-        to="/loverProfile"
+        to="/datingPool"
         exact
         // style={linkStyles}
         // activeStyle={active}
         >
             Swipe for Love
         </NavLink>
-        {/* <NavLink
+        <NavLink
         to="/matches"
         exact
         // style={linkStyles}
         // activeStyle={active}
         >
             My Matches
-        </NavLink> */}
+        </NavLink> 
+        <NavLink
+        to="/loginPage"
+        exact
+        // style={linkStyles}
+        // activeStyle={active}
+        >
+            Login!
+        </NavLink>
     </div>
   )
 }
