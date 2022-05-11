@@ -1,6 +1,7 @@
 import React from 'react'
 
 function UserCard({userInfo}) {
+  console.log(userInfo)
   return (
     <div key={userInfo.id}>
             <h1>{userInfo.username}</h1>
