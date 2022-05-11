@@ -13,16 +13,16 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
+          <DatingPool/>
+        </Route>
+        <Route exact path="/userProfile">
           <ActiveProfile />
         </Route>
-        <Route path="/loginPage">
+        <Route exact path="/loginPage">
           <LoginPage />
         </Route>
-        <Route path="/matches">
+        <Route exact path="/matches">
           <Matches/>
-        </Route>
-        <Route path="/datingPool">
-          <DatingPool/>
         </Route>
       </Switch>
     </div>

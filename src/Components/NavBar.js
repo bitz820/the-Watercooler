@@ -5,30 +5,6 @@ const NavBar = () => {
   return (
     <div>
         <NavLink
-        to="/"
-        exact
-        // style={linkStyles}
-        // activeStyle={active}
-        >
-            My Profile
-        </NavLink>
-        <NavLink
-        to="/datingPool"
-        exact
-        // style={linkStyles}
-        // activeStyle={active}
-        >
-            Swipe for Love
-        </NavLink>
-        <NavLink
-        to="/matches"
-        exact
-        // style={linkStyles}
-        // activeStyle={active}
-        >
-            My Matches
-        </NavLink> 
-        <NavLink
         to="/loginPage"
         exact
         // style={linkStyles}
@@ -36,6 +12,30 @@ const NavBar = () => {
         >
             Login!
         </NavLink>
+        <NavLink
+        to="/matches"
+        exact
+        // style={linkStyles}
+        // activeStyle={active}
+        >
+            View My Matches
+        </NavLink>
+        <NavLink
+        to="/"
+        exact
+        // style={linkStyles}
+        // activeStyle={active}
+        >
+            Swipe for Love
+        </NavLink>
+        <NavLink
+        to="/userProfile"
+        exact
+        // style={linkStyles}
+        // activeStyle={active}
+        >
+            View My Profile
+        </NavLink> 
     </div>
   )
 }
