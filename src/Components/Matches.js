@@ -4,6 +4,7 @@ import UserCard from './UserCard'
 function Matches({user}) {
   const [isAMatch, setIsAMatch] = useState([])
   console.log(user)
+  console.log(user.id)
   useEffect (() => {
     // console.log(user)
     fetch(`http://localhost:9292/users/${user.id}/matches`)

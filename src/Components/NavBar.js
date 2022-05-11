@@ -12,7 +12,8 @@ const NavBar = () => {
             Login!
         </NavLink>
         <NavLink
-        exact to="/matches"
+        exact to="/users/1/matches"
+        // exact to="/users/:id/matches"
         // style={linkStyles}
         // activeStyle={active}
         >

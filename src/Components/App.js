@@ -15,7 +15,6 @@ function App() {
       // fetch(`http://localhost:9292/users/${id}`)
       .then(r=>r.json())
       .then(data => {
-
         setUser(data.user)
         console.log(data.user)
         setDatingPool(data.not_me)
@@ -36,7 +35,7 @@ function App() {
         <Route exact path="/loginPage">
           <LoginPage />
         </Route>
-        <Route exact path="/matches">
+        <Route exact path="/users/1/matches">
           <Matches user={user}/>
         </Route>
       </Switch>
