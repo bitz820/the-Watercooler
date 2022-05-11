@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import UserCard from './UserCard'
 
-function Matches() {
+function Matches({user}) {
   const [isAMatch, setIsAMatch] = useState([])
-
+  console.log(user)
   useEffect (() => {
-    fetch("http://localhost:9292/matches")
+    // console.log(user)
+    fetch(`http://localhost:9292/users/${user.id}/matches`)
     .then(r=>r.json())
     .then(data => {
       console.log(data)
@@ -13,12 +14,9 @@ function Matches() {
     })
   }, [])
 
-  const determineMatches = isAMatch.filter(lover => <UserCard data={lover}/>)
+  const determineMatches = isAMatch.map(lover => <UserCard userInfo={lover}/>)
 
   console.log(determineMatches)
-  
-
-
 
   return (
     <div>Render Matches here

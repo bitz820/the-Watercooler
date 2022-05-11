@@ -5,32 +5,28 @@ const NavBar = () => {
   return (
     <div>
         <NavLink
-        to="/loginPage"
-        exact
+        exact to="/loginPage"
         // style={linkStyles}
         // activeStyle={active}
         >
             Login!
         </NavLink>
         <NavLink
-        to="/matches"
-        exact
+        exact to="/matches"
         // style={linkStyles}
         // activeStyle={active}
         >
             View My Matches
         </NavLink>
         <NavLink
-        to="/"
-        exact
+        exact to="/"
         // style={linkStyles}
         // activeStyle={active}
         >
             Swipe for Love
         </NavLink>
         <NavLink
-        to="/userProfile"
-        exact
+        exact to="/userProfile"
         // style={linkStyles}
         // activeStyle={active}
         >
