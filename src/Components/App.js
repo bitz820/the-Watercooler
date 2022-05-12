@@ -9,20 +9,17 @@ import DatingPool from "./DatingPool"
 function App() {
   const [user, setUser] = useState({})
   const [datingPool, setDatingPool] = useState([])
-  // const [liked, setLiked] = useState(false)
-
+  const [isAMatch, setIsAMatch] = useState([])
 
     useEffect (() => {
       fetch(`http://localhost:9292/users/1`)
-      // fetch(`http://localhost:9292/users/${id}`)
       .then(r=>r.json())
       .then(data => {
         setUser(data.user)
-        console.log(data.user)
+        console.log("User:", data.user, "Dating Pool:", data.not_me)
         setDatingPool(data.not_me)
-        console.log(data.not_me)
       })
-    }, [])
+    }, [isAMatch])
 
   return (
     <div className="App">
@@ -31,25 +28,22 @@ function App() {
         <Route exact path="/">
           <DatingPool 
           setDatingPool={setDatingPool} 
-          // setLiked={setLiked} 
-          // liked={liked} 
           user={user} 
           datingPool={datingPool}
           />
         </Route>
         <Route exact path="/userProfile">
-          <ActiveProfile user={user} />
+          <ActiveProfile user={user} setUser={setUser} />
         </Route>
         <Route exact path="/loginPage">
           <LoginPage />
         </Route>
-        <Route exact path="/users/1/matches">
+        <Route exact path="/users/:id/matches">
           <Matches 
-          setDatingPool={setDatingPool} 
-          // setLiked={setLiked} 
-          // liked={liked} 
+          setIsAMatch={setIsAMatch}
+          isAMatch={isAMatch}
           user={user} 
-          datingPool={datingPool}/>
+          />
         </Route>
       </Switch>
     </div>

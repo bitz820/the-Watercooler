@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import UserCard from './UserCard'
 
-function Matches({user, setLiked, liked, datingPool, setDatingPool}) {
-  const [isAMatch, setIsAMatch] = useState([])
-  console.log(liked)
+function Matches({user, isAMatch, setIsAMatch}) {
   console.log(user)
   console.log(user.id)
   useEffect (() => {
@@ -17,14 +15,24 @@ function Matches({user, setLiked, liked, datingPool, setDatingPool}) {
     })
   }, [])
 
+  const deleteLike = (id) => {
+    fetch(`http://localhost:9292/likes/${id}`, {method: "DELETE"})
+      .then(r => r.json())
+      .then(data => {
+        console.log(data)
+        // filter over data for new arr without this id
+        const newArr = isAMatch.filter(profile => profile.id !== id)
+        // update state 
+        setIsAMatch(newArr)
+      })
+  }
+
   const renderMatches = isAMatch.map(profile => {
     return <UserCard 
+    handleClick={deleteLike}
+    key={user.id}
     currentUser={user} 
-    liked={liked} 
-    setLiked={setLiked} 
     userInfo={profile}
-    datingPool={datingPool}
-    setDatingPool={setDatingPool}
     />})
     
   return (
