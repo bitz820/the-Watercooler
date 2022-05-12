@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import UserCard from './UserCard'
 
-function Matches({user}) {
+function Matches({user, setLiked, liked, datingPool, setDatingPool}) {
   const [isAMatch, setIsAMatch] = useState([])
   console.log(user)
   console.log(user.id)
@@ -15,7 +15,16 @@ function Matches({user}) {
     })
   }, [])
 
-  const determineMatches = isAMatch.map(lover => <UserCard userInfo={lover}/>)
+  const determineMatches = isAMatch.map(profile => {
+    return <UserCard 
+    currentUser={user} 
+    liked={liked} 
+    setLiked={setLiked} 
+    userInfo={profile}
+    datingPool={datingPool}
+    setDatingPool={setDatingPool}
+    />})
+    
 
   console.log(determineMatches)
 

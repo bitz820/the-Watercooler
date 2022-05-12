@@ -1,12 +1,20 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import UserCard from './UserCard'
 
-function DatingPool({data}) {
+function DatingPool({setDatingPool, datingPool, user, setLiked, liked}) {
 
 
 
   // Fetch request for Use Effect to pull all people from the pool
-const renderDatingPool = data.map(profile => <UserCard userInfo={profile}/>)
+const renderDatingPool = datingPool.map(profile => {
+return <UserCard 
+currentUser={user} 
+liked={liked} 
+setLiked={setLiked} 
+userInfo={profile}
+datingPool={datingPool}
+setDatingPool={setDatingPool}
+/>})
 // Map through people that havent been liked by user yet, and and render a card for each.
 // State.map(profile => <UserCard data={profile} />
 

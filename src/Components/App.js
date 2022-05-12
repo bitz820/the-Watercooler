@@ -9,6 +9,8 @@ import DatingPool from "./DatingPool"
 function App() {
   const [user, setUser] = useState({})
   const [datingPool, setDatingPool] = useState([])
+  // const [liked, setLiked] = useState(false)
+
 
     useEffect (() => {
       fetch(`http://localhost:9292/users/1`)
@@ -27,7 +29,13 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <DatingPool data={datingPool}/>
+          <DatingPool 
+          setDatingPool={setDatingPool} 
+          // setLiked={setLiked} 
+          // liked={liked} 
+          user={user} 
+          datingPool={datingPool}
+          />
         </Route>
         <Route exact path="/userProfile">
           <ActiveProfile user={user} />
@@ -36,7 +44,12 @@ function App() {
           <LoginPage />
         </Route>
         <Route exact path="/users/1/matches">
-          <Matches user={user}/>
+          <Matches 
+          setDatingPool={setDatingPool} 
+          // setLiked={setLiked} 
+          // liked={liked} 
+          user={user} 
+          datingPool={datingPool}/>
         </Route>
       </Switch>
     </div>
