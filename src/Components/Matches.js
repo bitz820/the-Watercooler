@@ -3,19 +3,21 @@ import UserCard from './UserCard'
 
 function Matches({user, setLiked, liked, datingPool, setDatingPool}) {
   const [isAMatch, setIsAMatch] = useState([])
+  console.log(liked)
   console.log(user)
   console.log(user.id)
   useEffect (() => {
     // console.log(user)
     fetch(`http://localhost:9292/users/${user.id}/matches`)
     .then(r=>r.json())
-    .then(data => {
-      console.log(data)
-      setIsAMatch(data)
+    .then(allMatches => {
+      console.log(allMatches)
+      // const matchesArr = datingPool.filter
+      setIsAMatch(allMatches)
     })
   }, [])
 
-  const determineMatches = isAMatch.map(profile => {
+  const renderMatches = isAMatch.map(profile => {
     return <UserCard 
     currentUser={user} 
     liked={liked} 
@@ -25,12 +27,9 @@ function Matches({user, setLiked, liked, datingPool, setDatingPool}) {
     setDatingPool={setDatingPool}
     />})
     
-
-  console.log(determineMatches)
-
   return (
     <div>Render Matches here
-      {determineMatches}
+      {renderMatches}
     </div>
   )
 }

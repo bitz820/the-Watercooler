@@ -32,10 +32,13 @@ function UserCard({ userInfo, currentUser, datingPool, setDatingPool }) {
 
   const deleteLike = (id) => {
     fetch(`http://localhost:9292/likes/${id}`, {method: "DELETE"})
+    // patch? with setting user_id as null
       .then(r => r.json())
       .then(data => {
         console.log(data)
         setLiked(!liked)
+        // filter over data for new arr without this id
+        // update state 
       })
   }
 
@@ -49,9 +52,9 @@ function UserCard({ userInfo, currentUser, datingPool, setDatingPool }) {
       <p>Interests: {userInfo.interests}</p>
       {/* <h4>Age: USER.BIRTDATE BUT USE THE AGE METHOD TO CALCULATE?</h4> */}
       {liked ? (
-        <button className="ui-card" onClick={() => deleteLike(userInfo.id)} className="emoji-button favorite active">❤️</button>
+        <button className="ui-card emoji-button favorite active" onClick={() => deleteLike(userInfo.id)} >❤️</button>
       ) : (
-        <button className="ui-card" onClick={() => addLike(userInfo.id)} className="emoji-button favorite">♡</button>
+        <button className="ui-card emoji-button favorite" onClick={() => addLike(userInfo.id)} >♡</button>
       )}
     </div>
   )
