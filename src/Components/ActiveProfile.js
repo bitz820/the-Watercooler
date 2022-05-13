@@ -1,17 +1,52 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Input from './Input'
+import styled from "styled-components"
+
+const ProfileDiv = styled.div`
+display: flex;
+justify-content: space-evenly;
+`
+const StyledProfileCard = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+background: #0E3B43;
+color: white;
+border: 10px solid #A3BBAD ;
+border-radius: 10%;
+padding: 10px;
+margin-bottom: 100px;
+`
+const StyledForm = styled.form`
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+color: #312509;
+font-size: 25px;
+background: #A3BBAD;
+border: 10px solid #0E3B43;
+border-radius: 10%;
+padding: 10px;
+margin-bottom: 100px;
+`
+
+const StyledTitle = styled.h1`
+color: #A3BBAD;
+`
 
 const ActiveProfile = ({ user, setUser }) => {
   const [formData, setFormData] = useState({
     name: user.name,
     username: user.username,
     password: user.password,
+    profile_picture: user.profile_picture,
     bio: user.bio,
     gender: user.gender,
     interests: user.interests
   })
 
-  // setUser({ ...user, [e.target.name]: e.target.value });
   const handleInput = (e) => {
     console.log(e.target.name, " : ", e.target.value);
     const name = e.target.name
@@ -46,21 +81,22 @@ const ActiveProfile = ({ user, setUser }) => {
       )
   }
 
-  return (
-    <div>
-      <h1>Your Name: {formData.name}</h1>
-      <h2>Username: {formData.username}</h2>
-      <h2>Password: {formData.password}</h2>
-      <img src={user.profile_picture} alt="My Profile" />
-      <h5>Gender: {formData.gender}</h5>
-      <h3>About Me: {formData.bio}</h3>
-      <p>Interests: {formData.interests}</p>
-      {/* <h5>Gender: {formData.gender}</h5>
-      <h3>About Me: {formData.bio}</h3>
-      <p>Interests: {formData.interests}</p> */}
-
-      <form onSubmit={handleSubmit}>
-      <Input
+  return (<>
+      <StyledTitle> You auto-complete me. </StyledTitle>
+      <ProfileDiv>
+      <StyledProfileCard>
+        <h1>your_full_name: {formData.name}</h1>
+        <h2>username: {formData.username}</h2>
+        <h2>password: {formData.password}</h2>
+        <img src={user.profile_picture} alt="My Profile" />
+        <h3>gender: {formData.gender}</h3>
+        <h3>about_me: {formData.bio}</h3>
+        <p>interests: {formData.interests}</p>
+      </StyledProfileCard>
+      <StyledForm onSubmit={handleSubmit}>
+        <h3>Update your profile here!</h3>
+        full_name
+        <Input
           name="name"
           type="text"
           value={formData.name}
@@ -68,7 +104,7 @@ const ActiveProfile = ({ user, setUser }) => {
           handleInput={handleInput}
         />
         <br />
-
+        user_name
         <Input
           name="username"
           type="text"
@@ -77,6 +113,7 @@ const ActiveProfile = ({ user, setUser }) => {
           handleInput={handleInput}
         />
         <br />
+        password
         <Input
           name="password"
           type="password"
@@ -85,24 +122,36 @@ const ActiveProfile = ({ user, setUser }) => {
           handleInput={handleInput}
         />
         <br />
+        profile_picture
         <Input
-          name="gender"
+          name="profile_picture"
+          type="profile_picture"
+          value={formData.profile_picture}
+          placeholder={"Your profile_picture"}
+          handleInput={handleInput}
+        />
+        <br />
+        gender
+        <Input
+          name="Gender"
           type="text"
           value={formData.gender}
           placeholder={"Your gender"}
           handleInput={handleInput}
         />
         <br />
+        bio
         <Input
-          name="bio"
+          name="Bio"
           type="text"
           value={formData.bio}
           placeholder={"Your bio"}
           handleInput={handleInput}
         />
         <br />
+        interests
         <Input
-          name="interests"
+          name="Interests"
           type="text"
           value={formData.interests}
           placeholder={"Your interests"}
@@ -112,8 +161,10 @@ const ActiveProfile = ({ user, setUser }) => {
 
 
         <input type="submit" value="Update" />
-      </form>
-    </div>
+      </StyledForm>
+    </ProfileDiv>
+
+  </>
   )
 }
 

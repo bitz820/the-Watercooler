@@ -1,7 +1,21 @@
 import React from 'react'
 import UserCard from './UserCard'
+import styled from "styled-components"
 
-function DatingPool({setDatingPool, datingPool, user}) {
+const StyledTitle = styled.h1`
+color: #A3BBAD;
+`
+
+
+const DatingContainer = styled.div`
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 10px 20px;
+`
+
+function DatingPool({setDatingPool, datingPool, user, matches}) {
 
   const addLike = (id) => {
 
@@ -30,21 +44,28 @@ function DatingPool({setDatingPool, datingPool, user}) {
 
   // Fetch request for Use Effect to pull all people from the pool
 const renderDatingPool = datingPool.map(profile => {
+  const buttonText = "optimistically render match"
 return <UserCard 
+buttonText={buttonText}
 key={profile.id}
 handleClick={addLike}
 currentUser={user} 
 userInfo={profile}
+matches={matches}
 />})
 // Map through people that havent been liked by user yet, and and render a card for each.
 // State.map(profile => <UserCard data={profile} />
 
 
   return (
-    <div>All potential matches here
-
+      
+  <div>
+    <StyledTitle> You had me at "Hello World."</StyledTitle>
+    <DatingContainer>
       {renderDatingPool}
-    </div>
+    </DatingContainer>
+  </div>
+
   )
 }
 

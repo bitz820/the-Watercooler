@@ -7,28 +7,39 @@ const linkStyles = {
     width: "100%",
     padding: "12px",
     margin: "0 6px 6px",
-    background: "tan",
-    border: "red 6px solid",
+    background: "#357266",
+    border: "#312509 6px solid",
     textDecoration: "none",
-    color: "red",
+    color: 'white',
 }
 
 const active = {
-    background: "red",
-    color: "white",
+    // background: "0E3B43",
+    color: "#312509",
     fontWeight: "bold",
-    border: "white 6px solid"
+    border: "#312509 6px solid"
 }
 
 const NavStyle = styled.div`
+    display: flex;
+    /* width: 35vh; */
     padding: 10px;
     text-align: center;
     font-size: 30px;
-    display: flex;
-    flex-direction: row;
     align-items: center;
-    margin-bottom: 30px;
-    justify-content: space-around;
+    margin: 30px;
+    justify-content: space-evenly;
+`
+
+const LinkStyle = styled(NavLink)`
+    display: inline;
+    width: 100%;
+    padding: 12px;
+    margin: 0 6px 6px;
+    background: #357266;
+    border: #312509 6px solid;
+    text-decoration: none;
+    color: white;
 `
 
 
@@ -36,35 +47,35 @@ const NavStyle = styled.div`
 const NavBar = () => {
   return (
     <NavStyle>
-        <NavLink
+        <LinkStyle
         exact to="/loginPage"
-        style={linkStyles}
+        // style={linkStyles}
         activeStyle={active}
         >
-            Login!
-        </NavLink>
-        <NavLink
+            <p>Login!</p>
+        </LinkStyle>
+        <LinkStyle
         exact to="/users/:id/matches"
         // exact to="/users/:id/matches"
         style={linkStyles}
         activeStyle={active}
         >
-            View My Matches
-        </NavLink>
-        <NavLink
+            <p>console.log(my_matches)</p>
+        </LinkStyle>
+        <LinkStyle
         exact to="/"
         style={linkStyles}
         activeStyle={active}
         >
-            Swipe for Love
-        </NavLink>
-        <NavLink
+            onClick="love"
+        </LinkStyle>
+        <LinkStyle
         exact to="/userProfile"
         style={linkStyles}
         activeStyle={active}
         >
-            View My Profile
-        </NavLink> 
+            Profile.update()
+        </LinkStyle> 
     </NavStyle>
   )
 }

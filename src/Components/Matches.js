@@ -1,7 +1,20 @@
 import React, {useEffect} from 'react'
 import UserCard from './UserCard'
+import styled from "styled-components"
 
-function Matches({user, isAMatch, setIsAMatch}) {
+const StyledTitle = styled.h1`
+color: #A3BBAD;
+`
+
+const MatchesContainer = styled.div`
+    display: flex;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 10px 20px;
+`
+
+function Matches({user, matches, setMatches}) {
   console.log(user)
   console.log(user.id)
   useEffect (() => {
@@ -11,7 +24,7 @@ function Matches({user, isAMatch, setIsAMatch}) {
     .then(allMatches => {
       console.log(allMatches)
       // const matchesArr = datingPool.filter
-      setIsAMatch(allMatches)
+      setMatches(allMatches)
     })
   }, [])
 
@@ -21,14 +34,18 @@ function Matches({user, isAMatch, setIsAMatch}) {
       .then(data => {
         console.log(data)
         // filter over data for new arr without this id
-        const newArr = isAMatch.filter(profile => profile.id !== id)
+        const newArr = matches.filter(profile => profile.id !== id)
         // update state 
-        setIsAMatch(newArr)
+        setMatches(newArr)
       })
   }
 
-  const renderMatches = isAMatch.map(profile => {
+  
+  const renderMatches = matches.map(profile => {
+    const buttonText = "destroy(love)"
     return <UserCard 
+    buttonText={buttonText}
+    matches = {matches} 
     handleClick={deleteLike}
     key={user.id}
     currentUser={user} 
@@ -36,8 +53,12 @@ function Matches({user, isAMatch, setIsAMatch}) {
     />})
     
   return (
-    <div>Render Matches here
+    <div>
+    <StyledTitle>[me != me]. [me += you].</StyledTitle>
+    <MatchesContainer>
       {renderMatches}
+    </MatchesContainer>
+
     </div>
   )
 }
