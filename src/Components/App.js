@@ -79,6 +79,7 @@ function App() {
     </Div>
 
     :
+    
     <Div>
     <LoginPage setisLoggedIn={setisLoggedIn} isLoggedIn={isLoggedIn} />
     </Div>

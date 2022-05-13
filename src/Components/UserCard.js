@@ -32,9 +32,9 @@ max-height: 300px;
 `
 
 function UserCard({ handleClick, userInfo, matches, buttonText }) {
-  console.log(buttonText)
-  console.log(matches)
-  console.log(userInfo)
+  // console.log(buttonText)
+  // console.log(matches)
+  // console.log(userInfo)
 
   
 

@@ -42,16 +42,16 @@ const NavBar = () => {
             home
         </StyledLink>
         <StyledLink
-        exact to="/users/:id/matches"
-        activeStyle={active}
-        >
-            console.log(my_matches)
-        </StyledLink>
-        <StyledLink
         exact to="/datingPool"
         activeStyle={active}
         >
            devs.find(love)
+        </StyledLink>
+        <StyledLink
+        exact to="/users/:id/matches"
+        activeStyle={active}
+        >
+            console.log(my_matches)
         </StyledLink>
         <StyledLink
         exact to="/userProfile"

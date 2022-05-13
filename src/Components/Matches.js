@@ -14,12 +14,12 @@ const MatchesContainer = styled.div`
   gap: 10px 20px;
   /* padding-left: 50px;
   padding-right: 50px; */
-  padding: 100px
+  padding: 100px;
 `
 
 function Matches({user, matches, setMatches}) {
-  console.log(user)
-  console.log(user.id)
+  /* console.log(user)
+  console.log(user.id) */
   useEffect (() => {
     // console.log(user)
     fetch(`http://localhost:9292/users/${user.id}/matches`)
@@ -50,7 +50,7 @@ function Matches({user, matches, setMatches}) {
     buttonText={buttonText}
     matches = {matches} 
     handleClick={deleteLike}
-    key={user.id}
+    key={profile.id}
     currentUser={user} 
     userInfo={profile}
     />})

@@ -21,11 +21,7 @@ const LoginDiv = styled.div`
     text-align: center;
     margin: auto;
     max-width: 440px;
-    /* padding: 30px; */
     border-radius: 25%;
-    /* border-top-right-radius: 60%;
-    border-top-left-radius: 100%;
-    border-bottom-left-radius: 60%; */
 
 `
 const Form = styled.form`

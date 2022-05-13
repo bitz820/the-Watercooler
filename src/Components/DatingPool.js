@@ -38,6 +38,9 @@ function DatingPool({setDatingPool, datingPool, user, matches}) {
         console.log(data)
         const newArr = datingPool.filter(person => person.id !== id)
         setDatingPool(newArr)
+        console.log(matches)
+
+        // if (matches.find(person => person.id === ))
       })
   }
 
