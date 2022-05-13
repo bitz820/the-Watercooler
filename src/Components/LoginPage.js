@@ -21,11 +21,7 @@ const LoginDiv = styled.div`
     text-align: center;
     margin: auto;
     max-width: 440px;
-    /* padding: 30px; */
     border-radius: 25%;
-    /* border-top-right-radius: 60%;
-    border-top-left-radius: 100%;
-    border-bottom-left-radius: 60%; */
 
 `
 const Form = styled.form`
@@ -58,7 +54,6 @@ const StyledBtn = styled.button`
   background-color: #0E3B43;
   color: #A3BBAD;
 `
-
 const StyledImg = styled.img`
 border-radius: 15%;
 border: 7px solid #0E3B43;
@@ -66,7 +61,6 @@ border: 7px solid #0E3B43;
 
 const Login = ({ setisLoggedIn, isLoggedIn }) => {
 
-  // const [errorMessages, setErrorMessages] = useState({})
   const [loginData, setLoginData] = useState({
     user: "",
     pass: ""

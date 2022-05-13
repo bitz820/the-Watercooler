@@ -31,7 +31,6 @@ border-radius: 10%;
 padding: 10px;
 margin-bottom: 100px;
 `
-
 const StyledTitle = styled.h1`
 color: #A3BBAD;
 `
@@ -83,8 +82,8 @@ const ActiveProfile = ({ user, setUser }) => {
   }
 
   return (<>
-      <StyledTitle> You auto-complete me. </StyledTitle>
-      <ProfileDiv>
+    <StyledTitle> You auto-complete me. </StyledTitle>
+    <ProfileDiv>
       <StyledProfileCard>
         <h1>your_full_name: {formData.name}</h1>
         <h2>username: {formData.username}</h2>
@@ -130,7 +129,7 @@ const ActiveProfile = ({ user, setUser }) => {
           value={formData.pickup_line}
           placeholder={"Your pickup_line"}
           handleInput={handleInput}
-        /> 
+        />
         <br />
         profile_picture
         <Input
@@ -168,8 +167,6 @@ const ActiveProfile = ({ user, setUser }) => {
           handleInput={handleInput}
         />
         <br />
-
-
         <input type="submit" value="Update" />
       </StyledForm>
     </ProfileDiv>

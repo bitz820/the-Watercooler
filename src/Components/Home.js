@@ -2,7 +2,6 @@ import React from 'react'
 import watercooler from "../media/watercooler.gif"
 import styled from "styled-components"
 
-
 const StyledContainer = styled.div`
 display: flex;
 flex-flow: column;
@@ -15,17 +14,14 @@ min-height: 80vh;
 /* margin-top: 100px;
 margin-bottom: 100px; */
 `
-
 const StyledImg = styled.img`
     height: 400px;
     width: auto;
     margin-top: 30px;
 `
-
 const StyledHeader = styled.h1`
 font-size: 60px;
 `
-
 
 function Home() {
     return (
@@ -36,8 +32,6 @@ function Home() {
             <StyledImg src={watercooler} alt="the watercooler" />
             </div>
             <p>We aim to create a safe space for Devs to find love.  Feel free to poke around.  We know you will find someone with the source code to your heart </p>
-
-
         </StyledContainer>
     )
 }

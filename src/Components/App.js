@@ -8,14 +8,10 @@ import Matches from "./Matches"
 import Home from "./Home"
 import DatingPool from "./DatingPool"
 
-
 // Colors/* CSS HEX */
 // sapphire blue #0E3B43
 // teal #357266
 // light green 
-// dark grey --gray-x-11-gray: #b8b8b8ff;
-// light pink --pastel-pink: #e39695ff;
-// dark pink --candy-pink: #df7373ff;
 
 const Div = styled.div`
 background-color: #65532F;
@@ -48,40 +44,45 @@ function App() {
   return (
     isLoggedIn ?
 
-    <Div className="App">
-      <NavBar />
-      <Switch>
-        <Route exact path="/">
-          <Home/>
-        </Route>
-        <Route exact path="/datingPool">
-          <DatingPool
-            setDatingPool={setDatingPool}
-            user={user}
-            datingPool={datingPool}
-            matches={matches}
-          />
-        </Route>
-        <Route exact path="/userProfile">
-          <ActiveProfile user={user} setUser={setUser} />
-        </Route>
-        <Route exact path="/loginPage">
-          <LoginPage setisLoggedIn={setisLoggedIn} isLoggedIn={isLoggedIn}/>
-        </Route>
-        <Route exact path="/users/:id/matches">
-          <Matches
-            setMatches={setMatches}
-            matches={matches}
-            user={user}
-          />
-        </Route>
-      </Switch>
-    </Div>
+      <Div className="App">
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/datingPool">
+            <DatingPool
+              setDatingPool={setDatingPool}
+              user={user}
+              datingPool={datingPool}
+              matches={matches}
+            />
+          </Route>
+          <Route exact path="/userProfile">
+            <ActiveProfile
+              user={user}
+              setUser={setUser} />
+          </Route>
+          <Route exact path="/loginPage">
+            <LoginPage
+              setisLoggedIn={setisLoggedIn}
+              isLoggedIn={isLoggedIn} />
+          </Route>
+          <Route exact path="/users/:id/matches">
+            <Matches
+              setMatches={setMatches}
+              matches={matches}
+              user={user}
+            />
+          </Route>
+        </Switch>
+      </Div>
 
-    :
-    <Div>
-    <LoginPage setisLoggedIn={setisLoggedIn} isLoggedIn={isLoggedIn} />
-    </Div>
+      :
+
+      <Div>
+        <LoginPage setisLoggedIn={setisLoggedIn} isLoggedIn={isLoggedIn} />
+      </Div>
   );
 }
 
