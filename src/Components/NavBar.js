@@ -2,17 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from "styled-components"
 
-const linkStyles = {
-    display: "inline",
-    width: "100%",
-    padding: "12px",
-    margin: "0 6px 6px",
-    background: "#357266",
-    border: "#312509 6px solid",
-    textDecoration: "none",
-    color: 'white',
-}
-
 const active = {
     // background: "0E3B43",
     color: "#312509",
@@ -23,19 +12,18 @@ const active = {
 const NavStyle = styled.div`
     display: flex;
     /* width: 35vh; */
-    padding: 10px;
+    padding: 25px;
     text-align: center;
-    font-size: 30px;
+    font-size: clamp(1.5rem, 3vw + 1rem, .5rem);
     align-items: center;
-    margin: 30px;
-    justify-content: space-evenly;
+    margin-bottom: 30px;
+    justify-content: space-around;
 `
 
-const LinkStyle = styled(NavLink)`
-    display: inline;
+const StyledLink = styled(NavLink)`
     width: 100%;
     padding: 12px;
-    margin: 0 6px 6px;
+    margin:  6px 6px;
     background: #357266;
     border: #312509 6px solid;
     text-decoration: none;
@@ -47,35 +35,37 @@ const LinkStyle = styled(NavLink)`
 const NavBar = () => {
   return (
     <NavStyle>
-        <LinkStyle
-        exact to="/loginPage"
-        // style={linkStyles}
-        activeStyle={active}
-        >
-            <p>Login!</p>
-        </LinkStyle>
-        <LinkStyle
-        exact to="/users/:id/matches"
-        // exact to="/users/:id/matches"
-        style={linkStyles}
-        activeStyle={active}
-        >
-            <p>console.log(my_matches)</p>
-        </LinkStyle>
-        <LinkStyle
+        <StyledLink
         exact to="/"
-        style={linkStyles}
         activeStyle={active}
         >
-            onClick="love"
-        </LinkStyle>
-        <LinkStyle
+            home
+        </StyledLink>
+        <StyledLink
+        exact to="/users/:id/matches"
+        activeStyle={active}
+        >
+            console.log(my_matches)
+        </StyledLink>
+        <StyledLink
+        exact to="/datingPool"
+        activeStyle={active}
+        >
+           devs.find(love)
+        </StyledLink>
+        <StyledLink
         exact to="/userProfile"
-        style={linkStyles}
         activeStyle={active}
         >
-            Profile.update()
-        </LinkStyle> 
+            profile.update()
+        </StyledLink> 
+        
+        <StyledLink
+        exact to="/loginPage"
+        activeStyle={active}
+        >
+            setIsLoggedIn(false)
+        </StyledLink>
     </NavStyle>
   )
 }

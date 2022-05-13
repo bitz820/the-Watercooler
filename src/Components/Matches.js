@@ -12,6 +12,9 @@ const MatchesContainer = styled.div`
   justify-content: space-evenly;
   align-items: flex-start;
   gap: 10px 20px;
+  /* padding-left: 50px;
+  padding-right: 50px; */
+  padding: 100px
 `
 
 function Matches({user, matches, setMatches}) {

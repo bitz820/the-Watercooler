@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from "react"
-import { Route, Switch } from 'react-router-dom'
+import React, { useState, useEffect } from "react"
+import { Route, Switch, useHistory } from 'react-router-dom'
 import NavBar from "./NavBar"
 import styled from "styled-components"
 import LoginPage from "./LoginPage"
 import ActiveProfile from "./ActiveProfile"
 import Matches from "./Matches"
+import Home from "./Home"
 import DatingPool from "./DatingPool"
 
 
@@ -21,6 +22,8 @@ background-color: #65532F;
 font-family: 'Monaco', sans-serif;
 color: #312509;
 text-align: center;
+height: 100%;
+padding: 100px;
 `
 
 
@@ -28,43 +31,56 @@ function App() {
   const [user, setUser] = useState({})
   const [datingPool, setDatingPool] = useState([])
   const [matches, setMatches] = useState([])
+  const [isLoggedIn, setisLoggedIn] = useState(false)
 
-    useEffect (() => {
-      fetch(`http://localhost:9292/users/1`)
-      .then(r=>r.json())
+  const history = useHistory()
+
+  useEffect(() => {
+    fetch(`http://localhost:9292/users/1`)
+      .then(r => r.json())
       .then(data => {
         setUser(data.user)
         console.log("User:", data.user, "Dating Pool:", data.not_me)
         setDatingPool(data.not_me)
       })
-    }, [matches])
+  }, [matches])
 
   return (
+    isLoggedIn ?
+
     <Div className="App">
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <DatingPool 
-          setDatingPool={setDatingPool} 
-          user={user} 
-          datingPool={datingPool}
-          matches={matches}
+          <Home/>
+        </Route>
+        <Route exact path="/datingPool">
+          <DatingPool
+            setDatingPool={setDatingPool}
+            user={user}
+            datingPool={datingPool}
+            matches={matches}
           />
         </Route>
         <Route exact path="/userProfile">
           <ActiveProfile user={user} setUser={setUser} />
         </Route>
         <Route exact path="/loginPage">
-          <LoginPage />
+          <LoginPage setisLoggedIn={setisLoggedIn} isLoggedIn={isLoggedIn}/>
         </Route>
         <Route exact path="/users/:id/matches">
-          <Matches 
-          setMatches={setMatches}
-          matches={matches}
-          user={user} 
+          <Matches
+            setMatches={setMatches}
+            matches={matches}
+            user={user}
           />
         </Route>
       </Switch>
+    </Div>
+
+    :
+    <Div>
+    <LoginPage setisLoggedIn={setisLoggedIn} isLoggedIn={isLoggedIn} />
     </Div>
   );
 }

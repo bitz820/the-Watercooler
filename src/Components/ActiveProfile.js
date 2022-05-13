@@ -8,8 +8,8 @@ justify-content: space-evenly;
 `
 const StyledProfileCard = styled.div`
 display: flex;
-flex-direction: column;
-justify-content: space-evenly;
+flex-flow: column wrap;
+justify-content: space-between;
 align-items: center;
 background: #0E3B43;
 color: white;
@@ -43,8 +43,9 @@ const ActiveProfile = ({ user, setUser }) => {
     password: user.password,
     profile_picture: user.profile_picture,
     bio: user.bio,
-    gender: user.gender,
-    interests: user.interests
+    interested_in: user.interested_in,
+    interests: user.interests,
+    pickup_line: user.pickup_line
   })
 
   const handleInput = (e) => {
@@ -87,10 +88,11 @@ const ActiveProfile = ({ user, setUser }) => {
       <StyledProfileCard>
         <h1>your_full_name: {formData.name}</h1>
         <h2>username: {formData.username}</h2>
+        <h3>pickup_line: {formData.pickup_line}</h3>
         <h2>password: {formData.password}</h2>
-        <img src={user.profile_picture} alt="My Profile" />
-        <h3>gender: {formData.gender}</h3>
-        <h3>about_me: {formData.bio}</h3>
+        <img src={formData.profile_picture} alt="My Profile" />
+        <h3>interested_in: {formData.interested_in}</h3>
+        <h3>about: {formData.bio}</h3>
         <p>interests: {formData.interests}</p>
       </StyledProfileCard>
       <StyledForm onSubmit={handleSubmit}>
@@ -121,6 +123,14 @@ const ActiveProfile = ({ user, setUser }) => {
           placeholder={"Your password"}
           handleInput={handleInput}
         />
+        pickup_line
+        <Input
+          name="pickup_line"
+          type="pickup_line"
+          value={formData.pickup_line}
+          placeholder={"Your pickup_line"}
+          handleInput={handleInput}
+        /> 
         <br />
         profile_picture
         <Input
@@ -131,12 +141,12 @@ const ActiveProfile = ({ user, setUser }) => {
           handleInput={handleInput}
         />
         <br />
-        gender
+        interested_in
         <Input
-          name="Gender"
+          name="interested_in"
           type="text"
-          value={formData.gender}
-          placeholder={"Your gender"}
+          value={formData.interested_in}
+          placeholder={"Your interested_in"}
           handleInput={handleInput}
         />
         <br />
@@ -149,7 +159,7 @@ const ActiveProfile = ({ user, setUser }) => {
           handleInput={handleInput}
         />
         <br />
-        interests
+        hobbies
         <Input
           name="Interests"
           type="text"

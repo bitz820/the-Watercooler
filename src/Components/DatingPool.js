@@ -12,6 +12,7 @@ const DatingContainer = styled.div`
   flex-flow: wrap;
   justify-content: space-evenly;
   align-items: flex-start;
+  padding: 100px;
   gap: 10px 20px;
 `
 
