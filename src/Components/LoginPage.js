@@ -90,7 +90,6 @@ const Login = ({ setisLoggedIn, isLoggedIn }) => {
       <br/>
       <br/>
       <br/>
-      <br/>
       <StyledImg src="https://thumbs.gfycat.com/GenerousBouncyHapuku-size_restricted.gif" alt="bye now" />
       <StyledBtn onClick={() => setisLoggedIn(false)}>Log Out</StyledBtn>
     </HeaderDiv>
