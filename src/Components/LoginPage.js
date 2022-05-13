@@ -22,6 +22,7 @@ const LoginDiv = styled.div`
     margin: auto;
     max-width: 440px;
     border-radius: 25%;
+    height: 80vh;
 
 `
 const Form = styled.form`
@@ -40,7 +41,7 @@ color: rgb(250, 252, 247);
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: auto;
+    /* margin: auto; */
     max-width: 440px;
     /* padding: 30px; */
     border-radius: 30%;
@@ -83,7 +84,14 @@ const Login = ({ setisLoggedIn, isLoggedIn }) => {
 
   const userIsLoggedIn = (
     <HeaderDiv>
-      <p>You are already Logged In! Click Below to Log Out!</p>
+      <h1>Ctrl + Alt + Del</h1>
+      <p>clicking below will log you out</p>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <StyledImg src="https://thumbs.gfycat.com/GenerousBouncyHapuku-size_restricted.gif" alt="bye now" />
       <StyledBtn onClick={() => setisLoggedIn(false)}>Log Out</StyledBtn>
     </HeaderDiv>
   )
@@ -111,7 +119,7 @@ const Login = ({ setisLoggedIn, isLoggedIn }) => {
 
   return (
     <LoginDiv className="login-form">
-      <Title>{isLoggedIn ? "Sign Out?" : <StyledImg src={greeting} alt="Hello from water cooler" />}</Title>
+      <Title>{isLoggedIn ? null : <StyledImg src={greeting} alt="Hello from water cooler" />}</Title>
       {isLoggedIn ? null : <h3> please setIsLoggedIn(true)...</h3>}
       {isLoggedIn ? userIsLoggedIn : FormField}
     </LoginDiv>
