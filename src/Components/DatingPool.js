@@ -5,8 +5,6 @@ import styled from "styled-components"
 const StyledTitle = styled.h1`
 color: #A3BBAD;
 `
-
-
 const DatingContainer = styled.div`
   display: flex;
   flex-flow: wrap;
@@ -44,8 +42,6 @@ function DatingPool({setDatingPool, datingPool, user, matches}) {
       })
   }
 
-
-
   // Fetch request for Use Effect to pull all people from the pool
 const renderDatingPool = datingPool.map(profile => {
   const buttonText = "optimistically render match"
@@ -57,8 +53,6 @@ currentUser={user}
 userInfo={profile}
 matches={matches}
 />})
-// Map through people that havent been liked by user yet, and and render a card for each.
-// State.map(profile => <UserCard data={profile} />
 
 
   return (
