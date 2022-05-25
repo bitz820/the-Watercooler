@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import UserCard from './UserCard'
+import MatchesCard from './MatchesCard'
 import styled from "styled-components"
 
 const StyledTitle = styled.h1`
@@ -7,7 +7,7 @@ color: #A3BBAD;
 `
 const MatchesContainer = styled.div`
   display: flex;
-  flex-flow: wrap;
+  /*flex-flow: wrap;*/
   justify-content: space-evenly;
   align-items: flex-start;
   gap: 10px 20px;
@@ -41,7 +41,7 @@ function Matches({ user, matches, setMatches }) {
 
   const renderMatches = matches.map(profile => {
     const buttonText = "destroy(love)"
-    return <UserCard
+    return <MatchesCard
       buttonText={buttonText}
       matches={matches}
       handleClick={deleteLike}

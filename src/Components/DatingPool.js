@@ -1,6 +1,7 @@
-import React from 'react'
-import UserCard from './UserCard'
+import React, {useState} from 'react'
+import DatingCard from './DatingCard'
 import styled from "styled-components"
+import ControlledCarousel from './CarouselComponent'
 
 const StyledTitle = styled.h1`
 color: #A3BBAD;
@@ -15,6 +16,23 @@ const DatingContainer = styled.div`
 `
 
 function DatingPool({setDatingPool, datingPool, user, matches}) {
+
+  const [index, setIndex] = useState(0)
+  
+  const moveAhead = () => {
+    console.log()
+    if (index < datingPool.length - 1) {
+      setIndex(() => index + 1)
+    }else
+    setIndex(0) 
+  };
+
+  const moveBack = () => {
+    if (index > 0){
+      setIndex(() => index - 1)}
+    else 
+    setIndex(datingPool.length - 1)
+  };
 
   const addLike = (id) => {
 
@@ -43,16 +61,19 @@ function DatingPool({setDatingPool, datingPool, user, matches}) {
   }
 
   // Fetch request for Use Effect to pull all people from the pool
-const renderDatingPool = datingPool.map(profile => {
+const renderDatingPool = () => {
+  let profile = datingPool[index]
   const buttonText = "optimistically render match"
-return <UserCard 
-buttonText={buttonText}
-key={profile.id}
-handleClick={addLike}
-currentUser={user} 
-userInfo={profile}
-matches={matches}
-/>})
+  return (<DatingCard 
+    buttonText={buttonText}
+    key={profile.id}
+    handleClick={addLike}
+    currentUser={user} 
+    userInfo={profile}
+    matches={matches}
+  />
+  )
+}
 
 
   return (
@@ -60,7 +81,9 @@ matches={matches}
   <div>
     <StyledTitle> You had me at "Hello World."</StyledTitle>
     <DatingContainer>
-      {renderDatingPool}
+      <button onClick={moveBack}>Previous</button>
+        {renderDatingPool()}
+        <button onClick={moveAhead}>Next</button>
     </DatingContainer>
   </div>
 
