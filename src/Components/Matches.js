@@ -5,6 +5,7 @@ import styled from "styled-components"
 const StyledTitle = styled.h1`
 color: #A3BBAD;
 `
+
 const MatchesContainer = styled.div`
   display: flex;
   /*flex-flow: wrap;*/

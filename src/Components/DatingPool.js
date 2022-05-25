@@ -1,16 +1,27 @@
 import React, {useState} from 'react'
 import DatingCard from './DatingCard'
 import styled from "styled-components"
-import ControlledCarousel from './CarouselComponent'
 
 const StyledTitle = styled.h1`
 color: #A3BBAD;
 `
+
+const StyledButton = styled.button`
+padding: 20px;
+font-size: 15px;
+background-color: #0E3B43;
+color: white;
+font-size: 20px;
+border-radius: 60px;
+`
+
 const DatingContainer = styled.div`
   display: flex;
-  flex-flow: wrap;
+  /* flex-flow: wrap; */
+  align-content: center;
   justify-content: space-evenly;
-  align-items: flex-start;
+  align-items: center;
+  max-width: 300px;
   padding: 100px;
   gap: 10px 20px;
 `
@@ -81,9 +92,9 @@ const renderDatingPool = () => {
   <div>
     <StyledTitle> You had me at "Hello World."</StyledTitle>
     <DatingContainer>
-      <button onClick={moveBack}>Previous</button>
+      <StyledButton onClick={moveBack}>Previous</StyledButton>
         {renderDatingPool()}
-        <button onClick={moveAhead}>Next</button>
+        <StyledButton onClick={moveAhead}>Next</StyledButton>
     </DatingContainer>
   </div>
 
