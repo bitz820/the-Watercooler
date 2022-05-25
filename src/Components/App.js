@@ -40,6 +40,7 @@ function App() {
         setDatingPool(data.not_me)
       })
   }, [matches])
+  
 
   return (
     isLoggedIn ?
