@@ -29,8 +29,6 @@ function App() {
   const [matches, setMatches] = useState([])
   const [isLoggedIn, setisLoggedIn] = useState(false)
 
-  const history = useHistory()
-
   useEffect(() => {
     fetch(`http://localhost:9292/users/1`)
       .then(r => r.json())
