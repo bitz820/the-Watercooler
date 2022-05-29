@@ -59,7 +59,7 @@ function DatingPool({setDatingPool, datingPool, user, matches}) {
       }, body: JSON.stringify(newLike)
     }
 
-    fetch(`http://localhost:9292/likes`, configObj)
+    fetch(`https://the-water-cooler-back-end.herokuapp.com/likes`, configObj)
       .then(r => r.json())
       .then(data => {
         console.log(data)

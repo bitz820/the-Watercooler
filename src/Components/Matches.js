@@ -19,7 +19,7 @@ const MatchesContainer = styled.div`
 
 function Matches({ user, matches, setMatches }) {
   useEffect(() => {
-    fetch(`http://localhost:9292/users/${user.id}/matches`)
+    fetch(`https://the-water-cooler-back-end.herokuapp.com/users/${user.id}/matches`)
       .then(r => r.json())
       .then(allMatches => {
         console.log(allMatches)
@@ -28,7 +28,7 @@ function Matches({ user, matches, setMatches }) {
   }, [])
 
   const deleteLike = (id) => {
-    fetch(`http://localhost:9292/likes/${id}`, { method: "DELETE" })
+    fetch(`https://the-water-cooler-back-end.herokuapp.com/likes/${id}`, { method: "DELETE" })
       .then(r => r.json())
       .then(data => {
         console.log(data)

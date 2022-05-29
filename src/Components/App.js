@@ -30,7 +30,7 @@ function App() {
   const [isLoggedIn, setisLoggedIn] = useState(false)
 
   useEffect(() => {
-    fetch(`http://localhost:9292/users/1`)
+    fetch(`https://the-water-cooler-back-end.herokuapp.com/users/1`)
       .then(r => r.json())
       .then(data => {
         setUser(data.user)

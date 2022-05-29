@@ -71,7 +71,7 @@ const ActiveProfile = ({ user, setUser }) => {
       body: JSON.stringify(formData)
     }
 
-    fetch(`http://localhost:9292/users/${user.id}`, configObj)
+    fetch(`https://the-water-cooler-back-end.herokuapp.com/users/${user.id}`, configObj)
       // fetch(`http://localhost:9292/users/${id}`)
       .then(r => r.json())
       .then(data => {
