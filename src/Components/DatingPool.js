@@ -1,30 +1,6 @@
 import React, {useState} from 'react'
 import DatingCard from './DatingCard'
-import styled from "styled-components"
 
-const StyledTitle = styled.h1`
-color: #A3BBAD;
-`
-
-const StyledButton = styled.button`
-padding: 20px;
-font-size: 15px;
-background-color: #0E3B43;
-color: white;
-font-size: 20px;
-border-radius: 60px;
-`
-
-const DatingContainer = styled.div`
-  display: flex;
-  /* flex-flow: wrap; */
-  align-content: center;
-  justify-content: space-evenly;
-  align-items: center;
-  max-width: 300px;
-  padding: 100px;
-  gap: 10px 20px;
-`
 
 function DatingPool({setDatingPool, datingPool, user, matches}) {
 
@@ -66,8 +42,6 @@ function DatingPool({setDatingPool, datingPool, user, matches}) {
         const newArr = datingPool.filter(person => person.id !== id)
         setDatingPool(newArr)
         console.log(matches)
-
-        // if (matches.find(person => person.id === ))
       })
   }
 
@@ -89,13 +63,13 @@ const renderDatingPool = () => {
 
   return (
       
-  <div>
-    <StyledTitle> You had me at "Hello World."</StyledTitle>
-    <DatingContainer>
-      <StyledButton onClick={moveBack}>Previous</StyledButton>
+  <div className="dating__container">
+    <h1 className='title'> You had me at "Hello World."</h1>
+    <div className='dating__card__container'>
+      <button className='btn__style' onClick={moveBack}>Previous</button>
         {renderDatingPool()}
-        <StyledButton onClick={moveAhead}>Next</StyledButton>
-    </DatingContainer>
+        <button className='btn__style' onClick={moveAhead}>Next</button>
+    </div>
   </div>
 
   )

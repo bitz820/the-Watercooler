@@ -1,26 +1,18 @@
 import React, { useState, useEffect } from "react"
-import { Route, Switch, useHistory } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import NavBar from "./NavBar"
-import styled from "styled-components"
 import LoginPage from "./LoginPage"
 import ActiveProfile from "./ActiveProfile"
 import Matches from "./Matches"
 import Home from "./Home"
 import DatingPool from "./DatingPool"
+import "./App.css"
 
 // Colors/* CSS HEX */
 // sapphire blue #0E3B43
 // teal #357266
 // light green 
 
-const Div = styled.div`
-background-color: #65532F;
-font-family: 'Monaco', sans-serif;
-color: #312509;
-text-align: center;
-height: 100%;
-padding: 100px;
-`
 
 
 function App() {
@@ -41,9 +33,9 @@ function App() {
   
 
   return (
-    isLoggedIn ?
+    // isLoggedIn ?
 
-      <Div className="App">
+      <div className="App">
         <NavBar />
         <Switch>
           <Route exact path="/">
@@ -75,13 +67,13 @@ function App() {
             />
           </Route>
         </Switch>
-      </Div>
+      </div>
 
-      :
+      // :
 
-      <Div>
-        <LoginPage setisLoggedIn={setisLoggedIn} isLoggedIn={isLoggedIn} />
-      </Div>
+      // <div>
+      //   <LoginPage setisLoggedIn={setisLoggedIn} isLoggedIn={isLoggedIn} />
+      // </div>
   );
 }
 
