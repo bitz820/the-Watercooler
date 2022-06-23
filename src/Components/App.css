@@ -181,7 +181,7 @@ body {
 
 
 
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 650px) {
     .navbar {
         justify-content: space-between;
         max-width: 100vw;
