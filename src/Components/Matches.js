@@ -54,10 +54,10 @@ function Matches({ user, matches, setMatches }) {
 
   return (
     <div>
-      <StyledTitle>[me != me]. [me += you].</StyledTitle>
-      <MatchesContainer>
+      <h1 className="title">[me != me]. [me += you].</h1>
+      <div className="match__container">
         {renderMatches}
-      </MatchesContainer>
+      </div>
 
     </div>
   )

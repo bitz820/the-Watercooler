@@ -104,7 +104,37 @@ body {
     border-radius: 68px;
     font-size: large;
     padding: 15px;
-  
+}
+
+.matches__card{
+    display: flex;
+    flex-flow: column;
+    flex:1 1 calc(10% - 1em);
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 320px;
+    min-height: 600px;
+    max-width: 320px;
+    max-height: 600px;
+    height: 100%;    
+    /*max-height: 300px;*/
+    border: 10px solid #312509;
+    background: #d3bf9f;
+    border-radius: 68px;
+    font-size: large;
+    padding: 15px;
+    margin-bottom: 0;
+}
+
+.match__img {
+    border: 10px solid #0E3B43;
+    max-width: 175px;
+    max-height: 250px;
+}
+
+ h6 {
+    margin-top: 0;
+
 }
 
 .btn__style {
@@ -123,6 +153,33 @@ body {
 .title {
     color: #A3BBAD;
 }
+
+.match__container {
+    display: flex;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 10px 20px;
+  /* padding-left: 50px;
+  padding-right: 50px; */
+  padding: 100px;
+}
+
+.matches__style{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.match__info{
+    display: flex;
+    flex-flow: column;
+    font-size: 15px;
+    margin-left: 20px;
+    justify-content: space-evenly;
+}
+
+
 
 @media screen and (max-width: 667px) {
     .navbar {
@@ -182,6 +239,27 @@ body {
         font-size: 1rem;
     }
 
+    .matches__card  {
+        border: 5px solid #312509;
+        padding: 0 30px;
+        margin-bottom: 20px;
+        min-width: 150px;
+        min-height: 355px;
+        max-height: 355px;
+    }
+
+    .matches__card img {
+        border: 5px solid #0E3B43;
+    }
+
+    .matches__card h1, h2 {
+        font-size: 1rem;
+    }
+
+    .matches__card h2 {
+        font-size: 1.5rem;
+    }
+
     .title {
         font-size: 1rem;
     }
@@ -195,5 +273,31 @@ body {
         font-size: 14px;
         padding: 5px;
         margin: 5px;
+    }
+
+    .match__info{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-flow: column;
+        margin-left: 10px;
+    }
+
+    .match__bottom{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        /* flex-flow: column; */
+    }
+
+    .match__bottom h6 {
+        margin: 0;
+        margin-left: 30px;
+        text-align: left;
+    }
+
+    #about {
+        /* font-size: 12px; */
     }
 }
