@@ -192,7 +192,7 @@ h6 {
 .profile__div {
     display: flex;
     flex-flow: column;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
     background: #0E3B43;
     /* min-width: 50%; */
@@ -275,10 +275,28 @@ h6 {
     .profile__container {
         display: flex;
         flex-flow: column;
+        /* margin: 0; */
+    }
+
+    .profile__div{
+        font-size: .6rem;
+        max-width: 350px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .profile__div img {
+        margin-right: 20px;
+        max-height: 175px;
+    }
+
+    .profile__top {
+        justify-content: space-between;
     }
 
     .profile__form {
-        min-width: 270px;
+        min-width: 85vw;
+
         margin-left: 0;
         font-size: 1rem;
     }
@@ -392,5 +410,18 @@ h6 {
         margin: 0;
         margin-left: 30px;
         text-align: left;
+    }
+
+    .login__div img {
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .login__div h3{
+        font-size: 1.3rem;
+    }
+
+    .login__div{
+        border: 1px solid #000;
     }
 }

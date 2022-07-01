@@ -53,7 +53,7 @@ const NavBar = () => {
         exact to="/loginPage"
         activeStyle={active}
         >
-            setIsLoggedIn(false)
+            back to work
         </NavLink>
     </div>
   )

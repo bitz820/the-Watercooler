@@ -105,7 +105,6 @@ const ActiveProfile = ({ user, setUser }) => {
           />
           <br />
           pickup_line
-
           <Input
             name="pickup_line"
             type="pickup_line"
