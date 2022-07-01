@@ -9,10 +9,9 @@ function MatchesCard({ handleClick, userInfo, matches, buttonText }) {
 
   return (
     <div className='matches__card'
-      key={userInfo.id}>
-      <div>
-
+    key={userInfo.id}>
         <h2>{userInfo.username}</h2>
+      <div>
         <div className='matches__style'>
           <div>
             <img className='match__img' src={userInfo.profile_picture} alt="My Profile" />

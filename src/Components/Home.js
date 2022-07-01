@@ -1,10 +1,13 @@
 import React from 'react'
 import watercooler from "../media/watercooler.gif"
+import greeting from "../media/greeting.gif"
+
 
 
 function Home() {
     return (
         <div className='home__container'>
+            <img id="gif" src={greeting} alt="Hello from water cooler" />
             <h1>the water cooler.</h1>
             <h3>a dating app for devs </h3>
             <img src={watercooler} alt="the watercooler" />

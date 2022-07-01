@@ -1,64 +1,5 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import styled from "styled-components"
-import greeting from "../media/greeting.gif"
-
-const Title = styled.div`
-    font-size: 60px;
-    text-align: center;
-    /* padding: 20px; */
-    /* background: #312509; */
-    border-radius: 25%;
-    /* border: 6px solid #312509; */
-`
-const LoginDiv = styled.div`
-    color: rgb(250, 252, 247);
-    display: flex;
-    flex-flow: column;
-    background-color: #0E3B43;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: auto;
-    max-width: 440px;
-    border-radius: 25%;
-    height: 80vh;
-
-`
-const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
-    margin: 30px;
-`
-const HeaderDiv = styled.div`
-color: rgb(250, 252, 247);
-    display: flex;
-    flex-flow: column;
-    background-color: #0E3B43;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    /* margin: auto; */
-    max-width: 440px;
-    /* padding: 30px; */
-    border-radius: 30%;
-    `
-
-const StyledBtn = styled.button`
-  padding: 20px;
-  font-size: 30px;
-  font-weight: bold;
-  border-radius: 20%;
-  background-color: #0E3B43;
-  color: #A3BBAD;
-`
-const StyledImg = styled.img`
-border-radius: 15%;
-border: 7px solid #0E3B43;
-`
 
 const Login = ({ setisLoggedIn, isLoggedIn }) => {
 
@@ -83,22 +24,22 @@ const Login = ({ setisLoggedIn, isLoggedIn }) => {
   }
 
   const userIsLoggedIn = (
-    <HeaderDiv>
-      <h1>Ctrl + Alt + Del</h1>
-      <p>clicking below will log you out</p>
+    <div className="login__div">
+      <h3>Back to the cubicle...?</h3>
+      <br/>
+      <h3>clicking below will log you out</h3>
       <br/>
       <br/>
       <br/>
-      <br/>
-      <StyledImg src="https://thumbs.gfycat.com/GenerousBouncyHapuku-size_restricted.gif" alt="bye now" />
-      <StyledBtn onClick={() => setisLoggedIn(false)}>Log Out</StyledBtn>
-    </HeaderDiv>
+      <img src="https://thumbs.gfycat.com/GenerousBouncyHapuku-size_restricted.gif" alt="bye now" />
+      <button className="logout__button" onClick={() => setisLoggedIn(false)}>Log Out</button>
+    </div>
   )
 
 
 
   const FormField = (
-    <Form onSubmit={onLogin}>
+    <form className='form' onSubmit={onLogin}>
       <label>Username</label>
       <br/>
       <input onChange={handleChange} type="text" name="user" required />
@@ -111,17 +52,18 @@ const Login = ({ setisLoggedIn, isLoggedIn }) => {
       <br/>
       <br/>
       <br/>
-      <input type="submit" />
-    </Form>
+      <input className='logout__button' type="submit" />
+    </form >
   )
 
 
   return (
-    <LoginDiv className="login-form">
-      <Title>{isLoggedIn ? null : <StyledImg src={greeting} alt="Hello from water cooler" />}</Title>
+    <>
       {isLoggedIn ? null : <h3> please setIsLoggedIn(true)...</h3>}
+    <div className="login__div">
       {isLoggedIn ? userIsLoggedIn : FormField}
-    </LoginDiv>
+    </div>
+    </>
   )
 }
 

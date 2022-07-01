@@ -1,39 +1,6 @@
 import React, { useState } from 'react'
 import Input from './Input'
-import styled from "styled-components"
 
-const ProfileDiv = styled.div`
-display: flex;
-justify-content: space-evenly;
-`
-const StyledProfileCard = styled.div`
-display: flex;
-flex-flow: column wrap;
-justify-content: space-between;
-align-items: center;
-background: #0E3B43;
-color: white;
-border: 10px solid #A3BBAD ;
-border-radius: 10%;
-padding: 10px;
-margin-bottom: 100px;
-`
-const StyledForm = styled.form`
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
-color: #312509;
-font-size: 25px;
-background: #A3BBAD;
-border: 10px solid #0E3B43;
-border-radius: 10%;
-padding: 10px;
-margin-bottom: 100px;
-`
-const StyledTitle = styled.h1`
-color: #A3BBAD;
-`
 
 const ActiveProfile = ({ user, setUser }) => {
   const [formData, setFormData] = useState({
@@ -81,97 +48,113 @@ const ActiveProfile = ({ user, setUser }) => {
       )
   }
 
-  return (<>
-    <StyledTitle> You auto-complete me. </StyledTitle>
-    <ProfileDiv>
-      <StyledProfileCard>
-        <h1>your_full_name: {formData.name}</h1>
-        <h2>username: {formData.username}</h2>
-        <h3>pickup_line: {formData.pickup_line}</h3>
-        <h2>password: {formData.password}</h2>
-        <img src={formData.profile_picture} alt="My Profile" />
-        <h3>interested_in: {formData.interested_in}</h3>
-        <h3>about: {formData.bio}</h3>
-        <p>interests: {formData.interests}</p>
-      </StyledProfileCard>
-      <StyledForm onSubmit={handleSubmit}>
-        <h3>Update your profile here!</h3>
-        full_name
-        <Input
-          name="name"
-          type="text"
-          value={formData.name}
-          placeholder={"Your name"}
-          handleInput={handleInput}
-        />
-        <br />
-        user_name
-        <Input
-          name="username"
-          type="text"
-          value={formData.username}
-          placeholder={"Your username"}
-          handleInput={handleInput}
-        />
-        <br />
-        password
-        <Input
-          name="password"
-          type="password"
-          value={formData.password}
-          placeholder={"Your password"}
-          handleInput={handleInput}
-        />
-        pickup_line
-        <Input
-          name="pickup_line"
-          type="pickup_line"
-          value={formData.pickup_line}
-          placeholder={"Your pickup_line"}
-          handleInput={handleInput}
-        />
-        <br />
-        profile_picture
-        <Input
-          name="profile_picture"
-          type="profile_picture"
-          value={formData.profile_picture}
-          placeholder={"Your profile_picture"}
-          handleInput={handleInput}
-        />
-        <br />
-        interested_in
-        <Input
-          name="interested_in"
-          type="text"
-          value={formData.interested_in}
-          placeholder={"Your interested_in"}
-          handleInput={handleInput}
-        />
-        <br />
-        bio
-        <Input
-          name="Bio"
-          type="text"
-          value={formData.bio}
-          placeholder={"Your bio"}
-          handleInput={handleInput}
-        />
-        <br />
-        hobbies
-        <Input
-          name="Interests"
-          type="text"
-          value={formData.interests}
-          placeholder={"Your interests"}
-          handleInput={handleInput}
-        />
-        <br />
-        <input type="submit" value="Update" />
-      </StyledForm>
-    </ProfileDiv>
+  return (
+    <>
+      <h1 className='title'> You auto-complete me. </h1>
+      <div className='profile__container'>
+        <div className='profile__div'>
+          <div className='profile__top'>
+            <img src={formData.profile_picture} alt="My Profile" />
+            <div className='profile__info'>
+              <h2>full_name:
+                {formData.name}
+              </h2>
+              <h2>user_name:
+                {formData.username}
+              </h2>
+              <h2>password:
+                {formData.password}
+              </h2>
+              <h3>interested_in:
+                {formData.interested_in}
+              </h3>
+            </div>
+          </div>
+          <h4>pickup_line: {formData.pickup_line}
+          </h4>
+          <h4>about: {formData.bio}</h4>
+          <h4>hobbies: {formData.interests}</h4>
+        </div>
+        <form className='profile__form' onSubmit={handleSubmit}>
+          <h3>Update your profile here!</h3>
+          full_name
+          <Input
+            name="name"
+            type="text"
+            value={formData.name}
+            placeholder={"Your name"}
+            handleInput={handleInput}
+          />
+          <br />
+          user_name
+          <Input
+            name="username"
+            type="text"
+            value={formData.username}
+            placeholder={"Your username"}
+            handleInput={handleInput}
+          />
+          <br />
+          password
+          <Input
+            name="password"
+            type="password"
+            value={formData.password}
+            placeholder={"Your password"}
+            handleInput={handleInput}
+          />
+          <br />
+          pickup_line
 
-  </>
+          <Input
+            name="pickup_line"
+            type="pickup_line"
+            value={formData.pickup_line}
+            placeholder={"Your pickup_line"}
+            handleInput={handleInput}
+          />
+          <br />
+          profile_picture
+          <Input
+            name="profile_picture"
+            type="profile_picture"
+            value={formData.profile_picture}
+            placeholder={"Your profile_picture"}
+            handleInput={handleInput}
+          />
+          <br />
+          interested_in
+          <Input
+            name="interested_in"
+            type="text"
+            value={formData.interested_in}
+            placeholder={"Your interested_in"}
+            handleInput={handleInput}
+          />
+          <br />
+          bio
+          <Input
+            name="Bio"
+            type="text"
+            value={formData.bio}
+            placeholder={"Your bio"}
+            handleInput={handleInput}
+          />
+          <br />
+          hobbies
+          <Input
+            name="Interests"
+            type="text"
+            value={formData.interests}
+            placeholder={"Your interests"}
+            handleInput={handleInput}
+          />
+          <br />
+          <input type="submit" value="Update" />
+        </form>
+      </div>
+
+    </>
   )
 }
 
