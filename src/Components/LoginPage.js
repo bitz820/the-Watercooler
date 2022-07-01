@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 const Login = ({ setisLoggedIn, isLoggedIn }) => {
 
   const handleClick = () => {
-    window.open("https://youtu.be/dQw4w9WgXcQ?t=43");
+    window.location.href = "https://youtu.be/dQw4w9WgXcQ?t=43";
   }
 
   // const [loginData, setLoginData] = useState({
